@@ -1,0 +1,15 @@
+{
+  "name": "hesy",
+  "description": "Hesy, dictation that keeps what you meant, for AI agents.",
+  "owner": {
+    "name": "Hesy",
+    "url": "https://hesy.app"
+  },
+  "plugins": [
+    {
+      "name": "hesy",
+      "source": "./claude-code",
+      "description": "Hesy for Claude Code: modes, dictionary, history, voice answers, learning from your fixes."
+    }
+  ]
+}

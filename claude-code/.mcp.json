@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "hesy": {
+      "command": "${CLAUDE_PLUGIN_ROOT}/bin/hesy-agent",
+      "args": ["mcp"]
+    }
+  }
+}

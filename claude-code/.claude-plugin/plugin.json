@@ -1,0 +1,8 @@
+{
+  "name": "hesy",
+  "version": "0.1.0",
+  "description": "Hesy for Claude Code: change dictation modes, teach Hesy your project's terms, read recent dictations, run text through Hesy, answer by voice, and learn from the words you fix before sending.",
+  "author": { "name": "Hesy", "url": "https://hesy.app" },
+  "homepage": "https://hesy.app",
+  "license": "MIT"
+}

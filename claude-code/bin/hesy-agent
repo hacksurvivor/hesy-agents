@@ -1,0 +1,30 @@
+#!/bin/sh
+# Finds the Hesy app and runs it as an agent tool:
+#   hesy-agent mcp     the MCP server (stdio), relayed to the running app
+#   hesy-agent learn   a UserPromptSubmit hook: the sent message teaches Hesy the words you fixed
+# Set HESY_BIN to Hesy's executable when it lives somewhere else (an AppImage, a portable copy).
+# A hook must never break a prompt: `learn` exits 0 and prints nothing, whatever happens.
+
+if [ -n "$HESY_BIN" ] && [ -x "$HESY_BIN" ]; then
+  exec "$HESY_BIN" "$@"
+fi
+
+for c in \
+  "/Applications/Hesy.app/Contents/MacOS/Hesy" \
+  "$HOME/Applications/Hesy.app/Contents/MacOS/Hesy" \
+  "/usr/bin/hesy" \
+  "/usr/local/bin/hesy" \
+  "$HOME/.local/bin/hesy" \
+  "${LOCALAPPDATA:-/nonexistent}/Hesy/Hesy.exe" \
+  "${LOCALAPPDATA:-/nonexistent}/Programs/Hesy/Hesy.exe"; do
+  if [ -x "$c" ]; then
+    exec "$c" "$@"
+  fi
+done
+
+if [ "$1" = "learn" ]; then
+  cat >/dev/null 2>&1
+  exit 0
+fi
+echo "Hesy isn't installed where hesy-agent looks. Install it from https://hesy.app, or set HESY_BIN to its executable." >&2
+exit 1
