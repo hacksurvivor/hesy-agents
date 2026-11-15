@@ -1,6 +1,6 @@
 # Hesy for AI agents
 
-Hesy is a dictation app that cleans speech as it goes: [hesy.app](https://hesy.app). This repo holds its Claude Code plugin and the setup for other agents.
+Hesy is a dictation app that cleans speech as it goes: [hesy.app](https://hesy.app). This is its Claude Code plugin and the setup for other agents, published at [hacksurvivor/hesy-agents](https://github.com/hacksurvivor/hesy-agents) from the `integrations/` folder of the Hesy repo.
 
 Hesy ships an MCP server, so Claude Code, Codex, Cursor and any other MCP client can work with it:
 
@@ -12,7 +12,7 @@ Hesy ships an MCP server, so Claude Code, Codex, Cursor and any other MCP client
 - **Voice answers** (`hesy_listen`, off until you turn it on in Hesy): the agent asks, you answer by voice, and it gets the cleaned text instead of Hesy pasting it.
 - **Learning from your fixes**: with the hook below, when you correct a word in a dictation before sending it to the agent ("versel" → "Vercel"), Hesy adds that spelling to its dictionary, as when you fix it in History.
 
-It needs a Hesy version with agent support (the release after 0.10.10). Everything stays on your computer. The agent runs `Hesy mcp`, which relays to the running app over 127.0.0.1 using a random token in a file only your user can read. If Hesy isn't running, it starts in the background.
+It needs Hesy 0.10.11 or newer. Everything stays on your computer. The agent runs `Hesy mcp`, which relays to the running app over 127.0.0.1 using a random token in a file only your user can read. If Hesy isn't running, it starts in the background.
 
 Hesy's executable:
 
